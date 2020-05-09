@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeableRecyclerView">
+        <attr name="leftBgColor" format="color" />
+        <attr name="leftImage" format="reference" />
+        <attr name="leftText" format="string" />
+        <attr name="rightBgColor" format="color" />
+        <attr name="rightImage" format="reference" />
+        <attr name="rightText" format="string" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+</resources>

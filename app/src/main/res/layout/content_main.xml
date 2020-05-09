@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <!--all attributes-->
+    <com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:leftBgColor="@color/colorAccent"
+        app:leftImage="@drawable/ic_remove"
+        app:leftText="Delete"
+        app:rightBgColor="@color/blue"
+        app:rightImage="@drawable/ic_check"
+        app:rightText="Read"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />
+    <!--no images/icons-->
+    <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:leftBgColor="@color/colorAccent"
+        app:leftText="Delete"
+        app:rightBgColor="@color/blue"
+        app:rightText="Read"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />-->
+    <!--no texts-->
+    <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:leftBgColor="@color/colorAccent"
+        app:leftImage="@drawable/ic_remove"
+        app:rightBgColor="@color/blue"
+        app:rightImage="@drawable/ic_check"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />-->
+    <!--one side left-->
+    <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:leftBgColor="@color/colorAccent"
+        app:leftImage="@drawable/ic_trash"
+        app:leftText="Delete"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />-->
+    <!--one side right-->
+    <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rightBgColor="@color/colorAccent"
+        app:rightImage="@drawable/ic_trash"
+        app:rightText="Delete"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />-->
+    <!--mixed-->
+    <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:leftBgColor="@color/colorAccent"
+        app:leftImage="@drawable/ic_trash"
+        app:leftText="Delete"
+        app:rightBgColor="@color/blue"
+        app:rightImage="@drawable/ic_v"
+        app:textColor="@android:color/white"
+        app:textSize="20sp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
