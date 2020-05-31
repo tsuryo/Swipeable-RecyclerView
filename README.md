@@ -137,7 +137,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-        implementation 'com.github.tsuryo:Swipeable-RecyclerView:v1.0'
+        implementation 'com.github.tsuryo:Swipeable-RecyclerView:1.1'
 	implementation 'androidx.recyclerview:recyclerview:+'
 }
 ```
