@@ -2,6 +2,10 @@ package com.tsuryo.swipeablerv;
 
 import java.util.Arrays;
 
+/**
+ * Created by Tsur Yohananov on 2020-05-07.
+ */
+
 public class SwipedView {
     private int[] mIcons;
     private int[] mBackgrounds;

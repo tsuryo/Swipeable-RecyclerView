@@ -16,6 +16,10 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Tsur Yohananov on 2020-05-07.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private List<String> mList;

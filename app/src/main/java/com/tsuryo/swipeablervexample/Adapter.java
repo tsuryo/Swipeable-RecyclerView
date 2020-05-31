@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * Created by Tsur Yohananov on 2020-05-07.
+ */
+
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private final List<String> mList;

@@ -11,6 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Created by Tsur Yohananov on 2020-05-07.
+ */
+
 public class SwipeableRecyclerView extends RecyclerView
         implements SwipeLeftRightCallback.Listener {
     private SwipedView mSwipedView;

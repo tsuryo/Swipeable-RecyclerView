@@ -13,6 +13,10 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Created by Tsur Yohananov on 2020-05-07.
+ */
+
 public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
     private final Listener mListener;
     private final SwipedView mSwipedView;
