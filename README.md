@@ -1,4 +1,7 @@
 [![](https://jitpack.io/v/tsuryo/Swipeable-RecyclerView.svg)](https://jitpack.io/#tsuryo/Swipeable-RecyclerView)
+![Downloads](https://jitpack.io/v/tsuryo/Swipeable-RecyclerView/month.svg)
+![Downloads](https://jitpack.io/v/tsuryo/Swipeable-RecyclerView/week.svg)
+
 
 # Swipeable-RecyclerView
 Android library provides a simple to use Swipeable RecyclerView.
