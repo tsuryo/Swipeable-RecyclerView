@@ -12,6 +12,9 @@ public class SwipedView {
     private String[] mTexts;
     private int mTextColor;
     private int mTextSize;
+    private float mCornerRadius;
+    private float mLeftCornerRadius = -1f;
+    private float mRightCornerRadius = -1f;
 
     SwipedView() {
     }
@@ -56,12 +59,36 @@ public class SwipedView {
                 "" : mTexts[1];
     }
 
+    float getCornerRadius() {
+        return mCornerRadius;
+    }
+
+    public float getLeftCornerRadius() {
+        return mLeftCornerRadius;
+    }
+
+    public float getRightCornerRadius() {
+        return mRightCornerRadius;
+    }
+
+    public void setCornerRadius(float cornerRadius) {
+        mCornerRadius = cornerRadius;
+    }
+
+    public void setLeftCornerRadius(float leftCornerRadius) {
+        mLeftCornerRadius = leftCornerRadius;
+    }
+
+    public void setRightCornerRadius(float rightCornerRadius) {
+        mRightCornerRadius = rightCornerRadius;
+    }
+
     void setIcons(int[] icons) {
         mIcons = icons;
     }
 
-    void setBackrounds(int[] backrounds) {
-        mBackgrounds = backrounds;
+    void setBackgrounds(int[] backgrounds) {
+        mBackgrounds = backgrounds;
     }
 
     void setTexts(String[] texts) {
@@ -84,18 +111,17 @@ public class SwipedView {
         return mTextSize;
     }
 
-    boolean isFull() {
-        return mBackgrounds != null && mBackgrounds.length == 2 &&
-                mIcons != null && mIcons.length == 2 &&
-                mTexts != null && mTexts.length == 2;
-    }
-
     @Override
     public String toString() {
         return "SwipedView{" +
                 "mIcons=" + Arrays.toString(mIcons) +
-                ", mBackrounds=" + Arrays.toString(mBackgrounds) +
+                ", mBackgrounds=" + Arrays.toString(mBackgrounds) +
                 ", mTexts=" + Arrays.toString(mTexts) +
+                ", mTextColor=" + mTextColor +
+                ", mTextSize=" + mTextSize +
+                ", mCornerRadius=" + mCornerRadius +
+                ", mLeftCornerRadius=" + mLeftCornerRadius +
+                ", mRightCornerRadius=" + mRightCornerRadius +
                 '}';
     }
 }

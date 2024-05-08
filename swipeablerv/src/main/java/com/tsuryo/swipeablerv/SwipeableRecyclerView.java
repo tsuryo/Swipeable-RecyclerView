@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SwipeableRecyclerView extends RecyclerView
         implements SwipeLeftRightCallback.Listener {
+    private final static float CORNER_RADIUS_DEFAULT = -1.0f;
     private SwipedView mSwipedView;
     private SwipeLeftRightCallback.Listener mListener;
 
@@ -34,13 +35,13 @@ public class SwipeableRecyclerView extends RecyclerView
     }
 
     public void setRightBg(int bg) {
-        mSwipedView.setBackrounds(new int[]{
+        mSwipedView.setBackgrounds(new int[]{
                 mSwipedView.getLeftBg(), bg
         });
     }
 
     public void setLeftBg(int bg) {
-        mSwipedView.setBackrounds(new int[]{
+        mSwipedView.setBackgrounds(new int[]{
                 bg, mSwipedView.getRightBg()
         });
     }
@@ -106,7 +107,7 @@ public class SwipeableRecyclerView extends RecyclerView
                 typedArray.getString(R.styleable.SwipeableRecyclerView_leftText),
                 typedArray.getString(R.styleable.SwipeableRecyclerView_rightText)
         });
-        mSwipedView.setBackrounds(new int[]{
+        mSwipedView.setBackgrounds(new int[]{
                 typedArray.getResourceId(
                         R.styleable.SwipeableRecyclerView_leftBgColor, R.color.white),
                 typedArray.getResourceId(
@@ -126,6 +127,21 @@ public class SwipeableRecyclerView extends RecyclerView
                 R.styleable.SwipeableRecyclerView_textColor, Color.BLACK));
         mSwipedView.setTextSize((int) typedArray
                 .getDimension(R.styleable.SwipeableRecyclerView_textSize, 15f));
+
+        float cornerRadius = typedArray.getDimension(
+                R.styleable.SwipeableRecyclerView_cornerRadius, CORNER_RADIUS_DEFAULT
+        );
+        if (cornerRadius == CORNER_RADIUS_DEFAULT) {
+            mSwipedView.setLeftCornerRadius(typedArray.getDimension(
+                    R.styleable.SwipeableRecyclerView_leftCornerRadius, CORNER_RADIUS_DEFAULT
+            ));
+            mSwipedView.setRightCornerRadius(typedArray.getDimension(
+                    R.styleable.SwipeableRecyclerView_rightCornerRadius, CORNER_RADIUS_DEFAULT
+            ));
+        } else {
+            mSwipedView.setCornerRadius(cornerRadius);
+        }
+
     }
 
 

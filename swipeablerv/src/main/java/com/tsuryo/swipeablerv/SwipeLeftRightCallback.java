@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.util.DisplayMetrics;
 import android.view.View;
 
@@ -81,7 +82,7 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
     }
 
     private void draw(@NonNull Canvas c, Context context, ChildToDraw toDraw) {
-        ColorDrawable bg = toDraw.getBg();
+        GradientDrawable bg = toDraw.getBg();
         Drawable icon = toDraw.getIcon();
         Paint paint = toDraw.getPaintText();
 
@@ -126,10 +127,10 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
     private class ChildToDraw {
         private final static int LEFT = 0, RIGHT = 1;
         private final int mSide;
-        private int dX;
-        private View v;
+        private final int dX;
+        private final View v;
         private Context context;
-        private ColorDrawable bg;
+        private GradientDrawable bg;
         private Drawable icon;
         private Paint mPaintText;
         private String mText;
@@ -144,7 +145,7 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
             mSide = side;
         }
 
-        private ColorDrawable getBg() {
+        private GradientDrawable getBg() {
             return bg;
         }
 
@@ -175,9 +176,10 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
                 e.printStackTrace();
             }
 
-
             int iconLeft;
             int iconRight;
+            bg = new GradientDrawable();
+
             switch (mSide) {
                 case LEFT:
                     mText = mSwipedView.getLeftText();
@@ -186,10 +188,9 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
                         iconRight = v.getLeft() + iconMargin + icon.getIntrinsicWidth();
                         icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
                     }
-                    bg = new ColorDrawable(context.getResources()
-                            .getColor(mSwipedView.getLeftBg()));
-                    bg.setBounds(v.getLeft(), v.getTop(), v.getLeft() +
-                            dX, v.getBottom());
+                    bg.setColor(context.getResources().getColor(mSwipedView.getLeftBg()));
+                    bg.setBounds(v.getLeft(), v.getTop(), v.getLeft() + dX, v.getBottom());
+                    bg.setCornerRadii(getRadii(mSwipedView.getLeftCornerRadius()));
                     break;
                 case RIGHT:
                     mText = mSwipedView.getRightText();
@@ -198,10 +199,9 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
                         iconRight = v.getRight() - iconMargin;
                         icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
                     }
-                    bg = new ColorDrawable(context.getResources()
-                            .getColor(mSwipedView.getRightBg()));
-                    bg.setBounds(v.getRight() + dX, v.getTop(),
-                            v.getRight(), v.getBottom());
+                    bg.setColor(context.getResources().getColor(mSwipedView.getRightBg()));
+                    bg.setBounds(v.getRight() + dX, v.getTop(), v.getRight(), v.getBottom());
+                    bg.setCornerRadii(getRadii(mSwipedView.getRightCornerRadius()));
                     break;
             }
             mPaintText = new Paint();
@@ -211,6 +211,36 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
                     mSwipedView.getTextSize());
             mPaintText.setTextAlign(Paint.Align.CENTER);
             return this;
+        }
+
+        private float[] getRadii(float radius) {
+            if (radius == -1)
+                radius = mSwipedView.getCornerRadius();
+            switch (mSide) {
+                case LEFT:
+                    return new float[]{
+                            convertDpToPixel(radius, context), // Top-left corner
+                            convertDpToPixel(radius, context), // Top-left corner
+                            0f, // Top-right corner
+                            0f, // Top-right corner
+                            0f, // Bottom-right corner
+                            0f, // Bottom-right corner
+                            convertDpToPixel(radius, context), // Bottom-left corner
+                            convertDpToPixel(radius, context)  // Bottom-left corner
+                    };
+                case RIGHT:
+                    return new float[]{
+                            0f, // Top-left corner
+                            0f, // Top-left corner
+                            convertDpToPixel(radius, context), // Top-right corner
+                            convertDpToPixel(radius, context), // Top-right corner
+                            convertDpToPixel(radius, context), // Bottom-right corner
+                            convertDpToPixel(radius, context), // Bottom-right corner
+                            0f, // Bottom-left corner
+                            0f  // Bottom-left corner
+                    };
+            }
+            return null;
         }
     }
 
