@@ -142,6 +142,13 @@ public class SwipeableRecyclerView extends RecyclerView
             mSwipedView.setCornerRadius(cornerRadius);
         }
 
+        mSwipedView.setShouldSupportRTL(
+                typedArray.getBoolean(R.styleable.SwipeableRecyclerView_supportRTL, false)
+        );
+        mSwipedView.setShouldForceRTL(
+                typedArray.getBoolean(R.styleable.SwipeableRecyclerView_forceRTL, false)
+        );
+
     }
 
 

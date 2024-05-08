@@ -23,7 +23,9 @@
         app:textSize="20sp"
         app:leftCornerRadius="2dp"
         app:rightCornerRadius="10dp"
-        app:cornerRadius="5dp"/>
+        app:cornerRadius="5dp"
+        app:supportRTL="false"
+        app:forceRTL="true"/>
     <!--no images/icons-->
     <!--<com.tsuryo.swipeablerv.SwipeableRecyclerView
         android:id="@+id/rv"

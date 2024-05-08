@@ -12,5 +12,7 @@
         <attr name="cornerRadius" format="dimension" />
         <attr name="leftCornerRadius" format="dimension" />
         <attr name="rightCornerRadius" format="dimension" />
+        <attr name="supportRTL" format="boolean" />
+        <attr name="forceRTL" format="boolean" />
     </declare-styleable>
 </resources>

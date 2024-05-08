@@ -55,11 +55,16 @@ public class SwipeLeftRightCallback extends ItemTouchHelper.SimpleCallback {
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                          int direction) {
         if (direction == ItemTouchHelper.RIGHT) {
-            mListener.onSwipedRight(viewHolder.getAdapterPosition());
+            if (mSwipedView.shouldShowRTL())
+                mListener.onSwipedLeft(viewHolder.getAdapterPosition());
+            else
+                mListener.onSwipedRight(viewHolder.getAdapterPosition());
         } else {
-            mListener.onSwipedLeft(viewHolder.getAdapterPosition());
+            if (mSwipedView.shouldShowRTL())
+                mListener.onSwipedRight(viewHolder.getAdapterPosition());
+            else
+                mListener.onSwipedLeft(viewHolder.getAdapterPosition());
         }
-
     }
 
     @Override

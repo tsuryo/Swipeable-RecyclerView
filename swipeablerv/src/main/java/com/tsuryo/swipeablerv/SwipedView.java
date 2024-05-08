@@ -15,8 +15,12 @@ public class SwipedView {
     private float mCornerRadius;
     private float mLeftCornerRadius = -1f;
     private float mRightCornerRadius = -1f;
+    private boolean mIsRTL;
+    private boolean mShouldSupportRTL;
+    private boolean mShouldForceRTL;
 
     SwipedView() {
+        mIsRTL = RTL.isRTL();
     }
 
     /**
@@ -34,29 +38,39 @@ public class SwipedView {
     }
 
     int getLeftIcon() {
+        if (shouldShowRTL())
+            return mIcons[1];
         return mIcons[0];
     }
 
     int getRightIcon() {
+        if (shouldShowRTL())
+            return mIcons[0];
         return mIcons[1];
     }
 
     int getLeftBg() {
+        if (shouldShowRTL())
+            return mBackgrounds[1];
         return mBackgrounds[0];
     }
 
     int getRightBg() {
+        if (shouldShowRTL())
+            return mBackgrounds[0];
         return mBackgrounds[1];
     }
 
     String getLeftText() {
-        return mTexts[0] == null ?
-                "" : mTexts[0];
+        if (shouldShowRTL())
+            return mTexts[1] == null ? "" : mTexts[1];
+        return mTexts[0] == null ? "" : mTexts[0];
     }
 
     String getRightText() {
-        return mTexts[1] == null ?
-                "" : mTexts[1];
+        if (shouldShowRTL())
+            return mTexts[0] == null ? "" : mTexts[0];
+        return mTexts[1] == null ? "" : mTexts[1];
     }
 
     float getCornerRadius() {
@@ -64,12 +78,25 @@ public class SwipedView {
     }
 
     public float getLeftCornerRadius() {
+        if (shouldShowRTL())
+            return mRightCornerRadius;
         return mLeftCornerRadius;
     }
 
     public float getRightCornerRadius() {
+        if (shouldShowRTL())
+            return mLeftCornerRadius;
         return mRightCornerRadius;
     }
+
+    int getTextColor() {
+        return mTextColor;
+    }
+
+    int getTextSize() {
+        return mTextSize;
+    }
+
 
     public void setCornerRadius(float cornerRadius) {
         mCornerRadius = cornerRadius;
@@ -103,12 +130,16 @@ public class SwipedView {
         mTextSize = size;
     }
 
-    int getTextColor() {
-        return mTextColor;
+    void setShouldSupportRTL(boolean shouldSupportRTL) {
+        mShouldSupportRTL = shouldSupportRTL;
     }
 
-    int getTextSize() {
-        return mTextSize;
+    void setShouldForceRTL(boolean shouldForceRTL) {
+        mShouldForceRTL = shouldForceRTL;
+    }
+
+    public boolean shouldShowRTL() {
+        return (mIsRTL && mShouldSupportRTL) || mShouldForceRTL;
     }
 
     @Override
@@ -122,6 +153,9 @@ public class SwipedView {
                 ", mCornerRadius=" + mCornerRadius +
                 ", mLeftCornerRadius=" + mLeftCornerRadius +
                 ", mRightCornerRadius=" + mRightCornerRadius +
+                ", mIsRTL=" + mIsRTL +
+                ", mShouldSupportRTL=" + mShouldSupportRTL +
+                ", mShouldForceRTL=" + mShouldForceRTL +
                 '}';
     }
 }
