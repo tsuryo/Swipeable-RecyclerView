@@ -38,7 +38,7 @@ publishing {
             from components.findByName('release')
             groupId = 'com.github.tsuryo'
             artifactId = 'swipeablerv'
-            version = '1.2'
+            version = '1.3'
         }
     }
 
