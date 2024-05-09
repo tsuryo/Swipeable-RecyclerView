@@ -10,7 +10,7 @@ Android library provides a simple to use Swipeable RecyclerView.
 
 ### Prerequisites
 Android 5.0+ API 21+
-## V1.2 what's new:
+## V1.3 what's new:
 ### Corner radius support
   ```XML
   app:leftCornerRadius="2dp"
@@ -156,7 +156,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-        implementation 'com.github.tsuryo:Swipeable-RecyclerView:1.2'
+        implementation 'com.github.tsuryo:Swipeable-RecyclerView:1.3'
 	implementation 'androidx.recyclerview:recyclerview:+'
 }
 ```
