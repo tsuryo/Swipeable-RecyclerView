@@ -18,7 +18,7 @@ Android 5.0+ API 21+
   app:cornerRadius="5dp"
   ```
   Use cornerRadius to set radius globally for all sides.
-  Use leftCornerRadius and rightCornerRadius if you need to custtomize each side independently.
+  Use leftCornerRadius and rightCornerRadius if you need to customize each side independently.
 ### RTL Support
   ```XML
   app:supportRTL="false"
